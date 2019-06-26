@@ -636,7 +636,7 @@ var datePickerController = (function datePickerController() {
                             try {
                                 td.focus();
                             } catch (err) {};
-                        }, 200);
+                        }, 0);
                     };
                 } catch (err) {};
             };
