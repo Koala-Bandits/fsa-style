@@ -1,0 +1,226 @@
+
+$loading-circular: fsa-loading-circular;
+$loading-circular-size-default: $size-medium;
+$loading-circular-size-btn: ($size-base * 4);
+$loading-circular-size-medium: ($size-medium * 2);
+$loading-circular-size-large: ($size-base * 18);
+$loading-circular-color-default: $color-fsa-aqua-300;
+$loading-circular-color-reverse: white;
+$loading-circular-color-trio-1: $color-fsa-primary;
+$loading-circular-color-trio-2: $color-fsa-secondary;
+$loading-circular-color-trio-3: $color-fsa-tertiary;
+
+.#{$loading-circular} {
+
+  // Variations ///////////////////////////////////////////////////////////////
+
+  & {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  &--medium & {}
+
+  &--large & {}
+
+  // Descendents //////////////////////////////////////////////////////////////
+
+  &__img {
+
+    width: $loading-circular-size-default;
+    height: $loading-circular-size-default;
+    animation-name: spin-scale;
+    animation-duration: 1800ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.785, .135, .15, .86);
+    shape-rendering: geometricprecision;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+
+    .#{$loading-circular}--medium & {
+      width: $loading-circular-size-medium;
+      height: $loading-circular-size-medium;
+    }
+
+    .#{$loading-circular}--large & {
+      width: $loading-circular-size-large;
+      height: $loading-circular-size-large;
+    }
+
+    .fsa-btn &,
+    .fsa-btn-group__item &,
+    .fsa-stepped-tabs__item & {
+      width: $loading-circular-size-btn;
+      height: $loading-circular-size-btn;
+      animation-name: spin-scale-button;
+      position: relative;
+      bottom: 1px; // magic number
+      vertical-align: center;
+    }
+
+    .fsa-input--small + .#{$loading-circular} &,
+    .fsa-select--small + .#{$loading-circular} & {
+      width: $loading-circular-size-btn;
+      height: $loading-circular-size-btn;
+      animation-name: spin-scale-button;
+      position: relative;
+      top: 4px; // magic number
+    }
+
+  }
+
+  &__path {
+
+    fill: $loading-circular-color-default;
+
+    .#{$loading-circular}--reverse & { fill: $loading-circular-color-reverse; }
+
+    .#{$loading-circular}--color {}
+
+    &--1 { .#{$loading-circular}--color & { fill: $loading-circular-color-trio-1; } }
+    &--2 { .#{$loading-circular}--color & { fill: $loading-circular-color-trio-2; } }
+    &--3 { .#{$loading-circular}--color & { fill: $loading-circular-color-trio-3; } }
+
+  }
+
+  &__label {
+
+    display: block;
+    margin-top: $size-default;
+
+    .#{$loading-circular}--large & {
+      font-weight: $font-light;
+      @include breakpoint(M) {
+        @include font-size(5);
+      }
+    }
+
+    .#{$loading-circular}--reverse & {
+      color: $color-fsa-tertiary-200;
+    }
+
+    strong {
+      font-weight: bolder;
+    }
+
+  }
+
+  // Context //////////////////////////////////////////////////////////////////
+
+  .#{$loading-circular}-input-container & {
+    position: absolute;
+    right: $size-small;
+    top: 0;
+  }
+
+  .fsa-btn &,
+  .fsa-btn-group__item &,
+  .fsa-stepped-tabs__item & {
+    width: $loading-circular-size-btn;
+    height: $loading-circular-size-btn;
+    animation-name: spin-scale-button;
+    margin-left: $size-default;
+    position: relative;
+    bottom: 1px; // magic number
+    vertical-align: center
+  }
+
+  .fsa-input--block + &,
+  .fsa-select--block + &,
+  .fsa-field__item + & {
+    display: block;
+    top: 7px; // magic number
+  }
+
+  .fsa-select--large + & {
+    top: -2px; // magic number
+  }
+
+  .fsa-select--block.fsa-input--large + &,
+  .fsa-select--block.fsa-select--large + & {
+    top: $size-default;
+    right: $size-default;
+  }
+
+  .fsa-select:disabled + & {
+    background-color: $form-disabled-bg-color;
+  }
+
+  .fsa-input--block.fsa-input--small + &,
+  .fsa-field__item.fsa-input--small + & {
+    top: 3px; // magic number
+  }
+
+  .fsa-input--block.fsa-input--large + &,
+  .fsa-field__item.fsa-input--large + & {
+    top: 13px; // magic number
+  }
+
+  .fsa-select--block.fsa-select--small + &,
+  .fsa-field__item.fsa-select--small + & {
+    top: 1px; // magic number
+    right: 10px; // magic number
+  }
+
+  .fsa-select--block.fsa-select--large + &,
+  .fsa-field__item.fsa-select--large + & {
+    top: 10px; // magic number
+  }
+
+  .fsa-select + & {
+    background-color: white;
+    right: 10px; // magic number
+  }
+
+  .fsa-select--small + & {
+    border-left: 4px solid white;
+  }
+
+  .fsa-input--small + &,
+  .fsa-input--large + & {
+    right: 12px; // magic number
+  }
+
+}
+
+.#{$loading-circular}-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.#{$loading-circular}-input-container {
+  position: relative;
+  .fsa-field & {
+    display: block;
+  }
+}
+
+@keyframes spin-scale {
+  50% {
+    transform: rotate(360deg) scale(.85);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes spin-scale-button {
+  0% {
+    transform: rotate(0) scale(1.3);
+  }
+
+  50% {
+    transform: rotate(360deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(720deg) scale(1.3);
+  }
+}

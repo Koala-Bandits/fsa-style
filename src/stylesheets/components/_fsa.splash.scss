@@ -1,0 +1,27 @@
+.fsa-splash {
+
+  & {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-bottom: ($size-base * 15) solid $color-fsa-tertiary-300;
+    @include breakpoint(M) {
+      border-bottom-width: ($size-base * 20);
+    }
+  }
+
+  &__hd {}
+
+  &__bd {
+    flex: 1;
+    padding-bottom: 4vh;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__ft {
+  }
+
+}
