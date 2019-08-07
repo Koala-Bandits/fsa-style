@@ -1,16 +1,16 @@
 
-$loading-circular: fsa-loading-circular;
-$loading-circular-size-default: $size-medium;
-$loading-circular-size-btn: ($size-base * 4);
-$loading-circular-size-medium: ($size-medium * 2);
-$loading-circular-size-large: ($size-base * 18);
-$loading-circular-color-default: $color-fsa-aqua-300;
-$loading-circular-color-reverse: white;
-$loading-circular-color-trio-1: $color-fsa-primary;
-$loading-circular-color-trio-2: $color-fsa-secondary;
-$loading-circular-color-trio-3: $color-fsa-tertiary;
+$loading-circle: fsa-loading-circle;
+$loading-circle-size-default: $size-medium;
+$loading-circle-size-btn: ($size-base * 4);
+$loading-circle-size-medium: ($size-medium * 2);
+$loading-circle-size-large: ($size-base * 18);
+$loading-circle-color-default: $color-fsa-aqua-300;
+$loading-circle-color-reverse: white;
+$loading-circle-color-trio-1: $color-fsa-primary;
+$loading-circle-color-trio-2: $color-fsa-secondary;
+$loading-circle-color-trio-3: $color-fsa-tertiary;
 
-.#{$loading-circular} {
+.#{$loading-circle} {
 
   // Variations ///////////////////////////////////////////////////////////////
 
@@ -30,8 +30,8 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
 
   &__img {
 
-    width: $loading-circular-size-default;
-    height: $loading-circular-size-default;
+    width: $loading-circle-size-default;
+    height: $loading-circle-size-default;
     animation-name: spin-scale;
     animation-duration: 1800ms;
     animation-iteration-count: infinite;
@@ -42,31 +42,31 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
       animation: none;
     }
 
-    .#{$loading-circular}--medium & {
-      width: $loading-circular-size-medium;
-      height: $loading-circular-size-medium;
+    .#{$loading-circle}--medium & {
+      width: $loading-circle-size-medium;
+      height: $loading-circle-size-medium;
     }
 
-    .#{$loading-circular}--large & {
-      width: $loading-circular-size-large;
-      height: $loading-circular-size-large;
+    .#{$loading-circle}--large & {
+      width: $loading-circle-size-large;
+      height: $loading-circle-size-large;
     }
 
     .fsa-btn &,
     .fsa-btn-group__item &,
     .fsa-stepped-tabs__item & {
-      width: $loading-circular-size-btn;
-      height: $loading-circular-size-btn;
+      width: $loading-circle-size-btn;
+      height: $loading-circle-size-btn;
       animation-name: spin-scale-button;
       position: relative;
       bottom: 1px; // magic number
       vertical-align: center;
     }
 
-    .fsa-input--small + .#{$loading-circular} &,
-    .fsa-select--small + .#{$loading-circular} & {
-      width: $loading-circular-size-btn;
-      height: $loading-circular-size-btn;
+    .fsa-input--small + .#{$loading-circle} &,
+    .fsa-select--small + .#{$loading-circle} & {
+      width: $loading-circle-size-btn;
+      height: $loading-circle-size-btn;
       animation-name: spin-scale-button;
       position: relative;
       top: 4px; // magic number
@@ -76,15 +76,15 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
 
   &__path {
 
-    fill: $loading-circular-color-default;
+    fill: $loading-circle-color-default;
 
-    .#{$loading-circular}--reverse & { fill: $loading-circular-color-reverse; }
+    .#{$loading-circle}--reverse & { fill: $loading-circle-color-reverse; }
 
-    .#{$loading-circular}--color {}
+    .#{$loading-circle}--color {}
 
-    &--1 { .#{$loading-circular}--color & { fill: $loading-circular-color-trio-1; } }
-    &--2 { .#{$loading-circular}--color & { fill: $loading-circular-color-trio-2; } }
-    &--3 { .#{$loading-circular}--color & { fill: $loading-circular-color-trio-3; } }
+    &--1 { .#{$loading-circle}--color & { fill: $loading-circle-color-trio-1; } }
+    &--2 { .#{$loading-circle}--color & { fill: $loading-circle-color-trio-2; } }
+    &--3 { .#{$loading-circle}--color & { fill: $loading-circle-color-trio-3; } }
 
   }
 
@@ -93,14 +93,14 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
     display: block;
     margin-top: $size-default;
 
-    .#{$loading-circular}--large & {
+    .#{$loading-circle}--large & {
       font-weight: $font-light;
       @include breakpoint(M) {
         @include font-size(5);
       }
     }
 
-    .#{$loading-circular}--reverse & {
+    .#{$loading-circle}--reverse & {
       color: $color-fsa-tertiary-200;
     }
 
@@ -112,7 +112,7 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
 
   // Context //////////////////////////////////////////////////////////////////
 
-  .#{$loading-circular}-input-container & {
+  .#{$loading-circle}-input-container & {
     position: absolute;
     right: $size-small;
     top: 0;
@@ -121,8 +121,8 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
   .fsa-btn &,
   .fsa-btn-group__item &,
   .fsa-stepped-tabs__item & {
-    width: $loading-circular-size-btn;
-    height: $loading-circular-size-btn;
+    width: $loading-circle-size-btn;
+    height: $loading-circle-size-btn;
     animation-name: spin-scale-button;
     margin-left: $size-default;
     position: relative;
@@ -188,13 +188,13 @@ $loading-circular-color-trio-3: $color-fsa-tertiary;
 
 }
 
-.#{$loading-circular}-container {
+.#{$loading-circle}-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.#{$loading-circular}-input-container {
+.#{$loading-circle}-input-container {
   position: relative;
   .fsa-field & {
     display: block;
