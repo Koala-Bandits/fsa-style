@@ -202,12 +202,16 @@ $loading-circle-color-trio-3: $color-fsa-tertiary;
 }
 
 @keyframes spin-scale {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+
   50% {
     transform: rotate(360deg) scale(.85);
   }
 
   100% {
-    transform: rotate(720deg);
+    transform: rotate(720deg) scale(1);
   }
 }
 
